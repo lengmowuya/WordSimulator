@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .hint{
+            width:100%;
+            margin:0;
+            padding:4px 0px;
+            background:#f9f9f9;
+            text-align: center;
+            position:fixed;
+            left:0;
+            bottom:0;
+            font-size:14px;
+            color:#ccc;
+        }
+        .worldList{
+            width:400px;
+            height:600px;
+            background:#ccc;
+            box-shadow: 0px 0px 8px #ddd;
+            margin-bottom:5px;
+            border-radius: 8px;
+            overflow: auto;
+        }
+        .container{
+            width:100vw;
+            height:100vh;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #推进{
+            padding:10px 16px; 
+        }
+        .word{
+            list-style: none;
+            background:#fff;
+            border-radius: 4px;
+            margin:10px;
+            padding:6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="worldList">
+        </ul>
+        <button id="推进">推进!</button>
+
+        <p class="hint">鸣谢帮助:阿布(鱼翅) 罗觉觉</p>
+    </div>
+    <script src="./运行器/属性.js"></script>
+    <!-- <script src="./事件库/基本人生事件.js"></script> -->
+    <script>
+        页面管理器.初始化();
+        let button = document.querySelector('#推进');
+        button.onclick = ()=>{
+            推进();
+        }
+    </script>
+    <script type="module">
+        // 动态引入文件
+        import 事件库 from './事件库/基本人生事件.js';
+        console.log(事件库);
+        事件管理器.挂载事件库(事件库.事件列表);
+    </script>
+</body>
+</html>
