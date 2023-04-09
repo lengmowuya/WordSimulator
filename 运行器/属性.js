@@ -32,6 +32,7 @@ function 推进(){
     事件管理器.广播组.forEach((item)=>{
         item();
     })
+    页面管理器.添加词条(词库管理器.随机获得词条());
 }
 let 事件管理器 = {
     广播组:[],
@@ -56,10 +57,20 @@ let 页面管理器 ={
 }
 let 词库管理器 = {
     词库列表:[],
-    挂载词库(){
-
+    随机获得词条(){
+        let 词列 = this.词库列表[随机数(0,this.词库列表.length-1)];
+        console.log(词列);
+        let 词条 = 词列[随机数(0,词列.length-1)]
+        return 词条.text;
+    },
+    挂载词库(list){
+        console.log(list);
+        this.词库列表.push(list);
     },
     卸载词库(){
 
     }
+}
+function 随机数(min,max){
+    return Math.floor(Math.random()*(max+1-min)+min);
 }

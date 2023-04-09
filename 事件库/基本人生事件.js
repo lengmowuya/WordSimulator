@@ -4,10 +4,26 @@ function 出生(){
         // console.log(Attr.health);
         if(Attr.health > 0){
             // console.log();
+            // import 幼童词库 from 
+            // let 幼童词库;
+            $.getJSON('./../词库/日常/幼童.json',(data)=>{
+                词库管理器.挂载词库(data);
+            })
+            $.getJSON('./../词库/城市.json',(data)=>{
+                词库管理器.挂载词库(data);
+            })
+            $.getJSON('./../词库/村子.json',(data)=>{
+                词库管理器.挂载词库(data);
+            })
+            $.getJSON('./../词库/偏远地区.json',(data)=>{
+                词库管理器.挂载词库(data);
+            })
+            // (async()=>{})()
             页面管理器.添加词条("你出生了");
         }else{
             // console.log('你胎死腹中');
             页面管理器.添加词条("你胎死腹中");
+            事件管理器.卸载事件库(事件列表);
         }
     }
 }
