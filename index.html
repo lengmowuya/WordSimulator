@@ -16,20 +16,20 @@
         <p class="hint">鸣谢帮助:阿布(鱼翅) 罗觉觉</p>
     </div>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script src="./模拟器/tools.js"></script>
     <script src="./模拟器/中心管理器.js"></script>
-    <script src="./运行器/属性.js"></script>
+    <!-- <script src="./运行器/属性.js"></script> -->
     <!-- <script src="./事件库/基本人生事件.js"></script> -->
     <script>
-        let button = document.querySelector('#推进');
-        button.onclick = ()=>{
-            推进();
-        }
+
     </script>
     <script type="module">
-        // 动态引入文件
-        import 事件库 from './事件库/基本人生事件.js';
-        // console.log(事件库);
-        事件管理器.挂载事件库(事件库.事件列表);
+        // // 动态引入文件
+        // import 事件库 from './事件库/基本人生事件.js';
+        // // console.log(事件库);
+        // 事件管理器.挂载事件库(事件库.事件列表);
+        import 人生重开日常DLC from './人生重开日常/dlc.js'
+        人生重开日常DLC.init();
     </script>
 </body>
 </html>
