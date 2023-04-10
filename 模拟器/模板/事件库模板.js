@@ -2,6 +2,7 @@
 class 事件库模板{
     constructor(){
         this.执行列表 = []
+        this.name = '事件库目标'
     }
     运行列表(属性中心){
         this.执行列表.forEach((item)=>{
@@ -17,5 +18,8 @@ class 事件库模板{
     }
     添加事件(name){
         this.执行列表.push(name);
+    }
+    卸载自我(){
+        事件管理器.卸载事件库(this.name);
     }
 }

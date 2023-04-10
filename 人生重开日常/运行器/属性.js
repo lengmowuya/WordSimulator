@@ -1,4 +1,4 @@
-let Attr ={
+let 属性中心 ={
     _age:-1,
     get age(){
         return this._age;
@@ -6,25 +6,45 @@ let Attr ={
     set age(value){
         console.log();
         this._age = value;
-        页面管理器.添加词条("年龄:"+value);
+        页面管理器.添加词条("年龄:"+value,true);
     },
     _health:0.2,
     get health(){
         return this._health;
     },
     set health(value){
+        let curValue =  new Number(value.toFixed(1));
         if(value>= this._health){
-            页面管理器.添加词条("体质+"+(value-this._health).
-            toFixed(1)+` (${value.toFixed(1)})`);
+            页面管理器.添加词条("体质+"+(curValue-this._health).
+            toFixed(1)+` (${curValue})`);
         }else{
-            页面管理器.添加词条("体质"+(value-this._health).toFixed(1)+` (${value.toFixed(1)})`);
+            页面管理器.添加词条("体质"+(curValue-this._health).toFixed(1)+` (${curValue})`);
         }
-        this._health = value;
+        this._health = curValue;
+        界面更新器.更新();
     },
     life:65,
     isDie:false,
-    isBorn:false
+    isBorn:false,
+    family:{
+        sex:'男',
+        father:true,
+        mother:true,
+        parter:false,
+    },
+    money:0,
+
+
 }
+let 界面更新器 = {
+    体质属性li:null,
+    初始化(){
+        this.体质属性li = document.querySelector('.attr_health');
+    },
+    更新(){
+        this.体质属性li.innerText = '体质:' + 属性中心.health;
+    }
+}
+界面更新器.初始化();
 
-
-export default Attr;
+export default 属性中心;

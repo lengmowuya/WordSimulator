@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
 }
+ul,
+ol {
+  list-style: none;
+}
 .hint {
   width: 100%;
   margin: 0;
@@ -14,14 +18,36 @@
   font-size: 14px;
   color: #ccc;
 }
-.worldList {
+.mainView {
   width: 400px;
   height: 600px;
-  background: #333366;
+  background: #fff;
   box-shadow: 0px 0px 8px #ddd;
   margin-bottom: 5px;
   border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+.worldList {
+  background: #333366;
+  border: 2px solid #333366;
+  flex-grow: 1;
   overflow: auto;
+  border-radius: 8px;
+  margin: 10px;
+  margin-top: 0;
+}
+.attrList {
+  display: flex;
+  padding: 5px;
+}
+.attrList .attrLi {
+  color: #fff;
+  background: #333366;
+  border-radius: 4px;
+  margin: 6px;
+  padding: 6px;
 }
 .container {
   width: 100vw;

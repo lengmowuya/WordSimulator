@@ -6,8 +6,13 @@ let 事件管理器 = {
         this.广播组.push(事件列表);
         // console.log(this.广播组);
     },
-    卸载事件库(事件列表){
-        this.广播组 = this.广播组.filter(item => !事件列表.some(event => event === item));
+    卸载事件库(name){
+        // this.广播组 = this.广播组.filter(item => !事件列表.some(event => event === item));
+        for(let i =0;i<this.广播组.length;i++){
+            if(this.广播组[i].name == name){
+                this.广播组.splice(i,1);
+            }
+        }
     },
     推进按钮:undefined,
     初始化(属性中心){
@@ -25,6 +30,10 @@ let 事件管理器 = {
             item.运行列表(this.属性中心);
         })
         页面管理器.添加词条(词库管理器.随机获得词条());
+    },
+    结束游戏(){
+        // 卸载所有事件库
+        this.广播组 = [];
     }
 }
 let 页面管理器 ={
@@ -32,11 +41,19 @@ let 页面管理器 ={
     初始化(){
         this.词条列表UI = document.querySelector('.worldList');
     },
-    添加词条(text){
-        let li = document.createElement('li');
-        li.innerText = text;
-        li.className = 'word';
-        this.词条列表UI.appendChild(li);
+    上一个词条:null,
+    添加词条(text,isBegin){
+        if(isBegin){
+            let li = document.createElement('li');
+            this.上一个词条 = li;
+            li.className = 'word';
+            this.上一个词条.innerText = text;
+            this.词条列表UI.appendChild(li);
+        }else{
+            this.上一个词条.innerText = this.上一个词条.innerText + '\n' +text;
+        }
+        this.词条列表UI.scrollTop = this.词条列表UI.scrollHeight;
+
     }
 }
 let 词库管理器 = {
