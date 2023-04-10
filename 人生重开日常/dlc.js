@@ -21,6 +21,9 @@ function start(){
     console.log(属性中心);
     事件管理器.挂载事件库(事件库);
     // console.log(tools);
+
+    页面管理器.初始化();
+    事件管理器.初始化(属性中心);
 }
 
 export default {
