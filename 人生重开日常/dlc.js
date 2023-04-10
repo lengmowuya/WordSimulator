@@ -16,9 +16,9 @@ function init(){
         })
 }
 function start(){
-    console.log(事件库);
-    console.log(事件管理器);
-    console.log(属性中心);
+    // console.log(事件库);
+    // console.log(事件管理器);
+    // console.log(属性中心);
     事件管理器.挂载事件库(事件库);
     // console.log(tools);
 
