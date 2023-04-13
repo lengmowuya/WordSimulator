@@ -59,9 +59,13 @@ let 页面管理器 ={
 let 词库管理器 = {
     词库列表:[],
     随机获得词条(){
-        // console.log(this.词库列表);
-        let 词列 = this.词库列表[tools.随机数(0,this.词库列表.length-1)].list;
-        let 词条 = 词列[tools.随机数(0,词列.length-1)]
+        let index = tools.随机数(0,this.词库列表.length-1);
+        let 词列 = this.词库列表[index].list;
+        let 词条 = 词列.splice(tools.随机数(0,词列.length-1),1)[0];
+        if(词列.length == 0){
+            this.卸载词库(this.词库列表[index].name);
+        }
+        console.log(this.词库列表);
         return 词条.text;
     },
     挂载词库(list){
