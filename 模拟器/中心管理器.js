@@ -77,6 +77,7 @@ let 词库管理器 = {
         for(let i =0;i<this.词库列表.length;i++){
             if(this.词库列表[i].name == name){
                 this.词库列表.splice(i,1);
+                console.log('-词库卸载:'+name);
             }
         }
     }
@@ -87,7 +88,6 @@ let 触发管理器 = {
         触发库.triggerList.forEach(item=>{
             this.list.push(触发库[item]);
         })
-        // console.log(this.list);
     },
     检测触发(attr){
         this.list.forEach((item)=>{

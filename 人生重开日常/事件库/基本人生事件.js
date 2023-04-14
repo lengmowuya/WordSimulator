@@ -8,9 +8,9 @@ class 基本人生事件库 extends 事件库模板 {
         // 出生事件:当age等于0的时候,判断是否能出生,如果属性中心够就出生,不够就死亡.
         if(属性中心.age != 0) return;
         if(属性中心.health > 0){
-            页面管理器.添加词条("你出生了");
+            页面管理器.添加词条(`<span style="color:red">你出生了</span>`);
         }else{
-            页面管理器.添加词条("你胎死腹中");
+            页面管理器.添加词条(`<span style="color:red">你胎死腹中</span>`);
             事件管理器.结束游戏();
         }
         return true;
@@ -29,7 +29,7 @@ class 基本人生事件库 extends 事件库模板 {
     死亡(属性中心){
         // 死亡事件:当health<0时,死亡.
         if(属性中心.health > 0) return;
-        页面管理器.添加词条('你死了!');
+        页面管理器.添加词条(`<span style="color:red">你死了</span>`);
         事件管理器.结束游戏();
         return true;
     }
@@ -77,7 +77,7 @@ class 基本人生事件库 extends 事件库模板 {
     娱乐(属性中心){
         if(属性中心.age < 12) return;
         // this.删除事件('娱乐');
-        词库管理器.载入词库('./人生重开日常/词库/日常/娱乐.json');
+        词库管理器.载入词库('娱乐');
         return true;
     }
     成人(属性中心){
@@ -95,7 +95,6 @@ class 基本人生事件库 extends 事件库模板 {
         if(!属性中心.isWork){
             属性中心.setAttr({isWork:true});
         }
-        // this.删除事件('社畜');
         return true;
     }
 }

@@ -10,7 +10,6 @@ class 成人事件库 extends 事件库模板 {
         }
     }
     离婚(属性中心){
-        // console.log(属性中心.isMarried)
         if(!属性中心.isMarried || (tools.随机数(1,10) != 1) || 属性中心.hasChild) return;
         if(confirm('你的老婆决定跟你离婚,是否挽留??')){
             if(tools.随机数(1,3) != 1){
@@ -21,7 +20,6 @@ class 成人事件库 extends 事件库模板 {
             }
         }else{
             属性中心.setAttr({isMarried:false});
-            // this.删除事件('离婚');
             页面管理器.添加词条("你的冷淡让你的老婆更加痛心-你离婚了,真悲惨");
         }
     }

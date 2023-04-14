@@ -2,15 +2,13 @@ const tools = {
     随机数(min,max){
         return Math.floor(Math.random()*(max+1-min)+min);
     },
-    async 载入文件(url){
+    async 载入文件(name){
+        let url = `./人生重开日常/词库/日常/${name}.json`;
         let data = await $.getJSON(url,(data)=>{
-            // 词库管理器.挂载词库(data);
-            let bag = new Promise((resolve,reject)=>resolve(data))
-            // console.log(bag);
+            let bag = new Promise(resolve=>resolve(data))
                 bag.then(data=>{return data});
             
         })
-        // console.log(data);
         return data;
     }
 }
