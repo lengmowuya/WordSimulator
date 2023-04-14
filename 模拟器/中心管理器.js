@@ -47,10 +47,10 @@ let 页面管理器 ={
             let li = document.createElement('li');
             this.上一个词条 = li;
             li.className = 'word';
-            this.上一个词条.innerText = text;
+            this.上一个词条.innerHTML = text;
             this.词条列表UI.appendChild(li);
         }else{
-            this.上一个词条.innerText = this.上一个词条.innerText + '\n' +text;
+            this.上一个词条.innerHTML = this.上一个词条.innerHTML + '\n' +text;
         }
         this.词条列表UI.scrollTop = this.词条列表UI.scrollHeight;
 

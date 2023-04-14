@@ -7,7 +7,7 @@ let 属性中心 ={
     set age(value){
         console.log();
         this._age = value;
-        页面管理器.添加词条("年龄:"+value,true);
+        页面管理器.添加词条(`<p style="color:gray;font-size:12px">年龄:${value}</p>`,true);
     },
     _health:0.2,
     get health(){
@@ -16,10 +16,9 @@ let 属性中心 ={
     set health(value){
         let curValue =  new Number(value.toFixed(1));
         if(value>= this._health){
-            页面管理器.添加词条("体质+"+(curValue-this._health).
-            toFixed(1)+` (${curValue})`);
+            // 页面管理器.添加词条("体质+"+(curValue-this._health).toFixed(1)+` (${curValue})`);
         }else{
-            页面管理器.添加词条("体质"+(curValue-this._health).toFixed(1)+` (${curValue})`);
+            // 页面管理器.添加词条("体质"+(curValue-this._health).toFixed(1)+` (${curValue})`);
         }
         this._health = curValue;
         界面更新器.更新();
@@ -34,7 +33,12 @@ let 属性中心 ={
         parter:false,
     },
     money:0,
-    tools
+    tools,
+    setAttr(attr){
+        for(let key in attr){
+            this[key] = attr[key];
+        }
+    }
 
 }
 let 界面更新器 = {
