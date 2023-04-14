@@ -6,11 +6,9 @@ const tools = {
         let data = await $.getJSON(url,(data)=>{
             // 词库管理器.挂载词库(data);
             let bag = new Promise((resolve,reject)=>resolve(data))
-            // console.log(bag);
                 bag.then(data=>{return data});
             
         })
-        // console.log(data);
         return data;
     }
 }

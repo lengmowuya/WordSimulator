@@ -5,8 +5,9 @@ class 事件库模板{
         this.name = '事件库目标'
     }
     运行列表(属性中心){
-        this.执行列表.forEach((item)=>{
-            this[item](属性中心);
+        this.执行列表.forEach((name)=>{
+            let once = this[name](属性中心);
+            if(once) this.删除事件(name);
         })
     }
     删除事件(name){

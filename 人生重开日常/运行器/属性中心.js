@@ -7,7 +7,7 @@ let 属性中心 ={
     set age(value){
         console.log();
         this._age = value;
-        页面管理器.添加词条(`<p style="color:gray;font-size:12px">年龄:${value}</p>`,true);
+        页面管理器.添加词条(`<span style="color:gray;font-size:12px">年龄:${value}</span>`,true);
     },
     _health:0.2,
     get health(){
@@ -38,6 +38,9 @@ let 属性中心 ={
         for(let key in attr){
             this[key] = attr[key];
         }
+        // console.log(词库管理器);
+        // console.log(触发管理器);
+        触发管理器.检测触发(attr);
     }
 
 }
