@@ -1,3 +1,4 @@
+import tools from './../工具库/tools.js'
 let 属性中心 ={
     _age:-1,
     get age(){
@@ -33,7 +34,7 @@ let 属性中心 ={
         parter:false,
     },
     money:0,
-
+    tools
 
 }
 let 界面更新器 = {

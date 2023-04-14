@@ -65,8 +65,12 @@ let 词库管理器 = {
         if(词列.length == 0){
             this.卸载词库(this.词库列表[index].name);
         }
-        console.log(this.词库列表);
+        // console.log(this.词库列表);
         return 词条.text;
+    },
+    async 载入词库(url){
+        let library = await tools.载入文件(url);
+        this.挂载词库(library);
     },
     挂载词库(list){
         // console.log(list);
