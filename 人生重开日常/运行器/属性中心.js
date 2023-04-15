@@ -40,6 +40,7 @@ let 属性中心 ={
         }
         // console.log(词库管理器);
         // console.log(触发管理器);
+        attr.属性中心 = this;
         触发管理器.检测触发(attr);
     }
 

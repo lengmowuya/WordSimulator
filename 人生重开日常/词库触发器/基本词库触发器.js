@@ -3,10 +3,15 @@ let Trigger = {
     幼童(attr){
         if(!attr.年龄段) return;
         if(attr.年龄段=='幼童'){
-            词库管理器.载入词库('幼童');
+            if(attr.属性中心.家境<=3){
+                词库管理器.载入词库('贫穷幼童');
+            }else{
+                词库管理器.载入词库('幼童');
+            }
         }else{
-            console.log(this);
+            // console.log(this);
             词库管理器.卸载词库('幼童');
+            词库管理器.卸载词库('贫穷幼童');
         }
     },
     少年(attr){

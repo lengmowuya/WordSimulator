@@ -7,6 +7,7 @@ class 基本人生事件库 extends 事件库模板 {
     出生(属性中心){
         // 出生事件:当age等于0的时候,判断是否能出生,如果属性中心够就出生,不够就死亡.
         if(属性中心.age != 0) return;
+        随机化出生(属性中心);
         if(属性中心.health > 0){
             页面管理器.添加词条(`<span style="color:red">你出生了</span>`);
         }else{
@@ -96,6 +97,23 @@ class 基本人生事件库 extends 事件库模板 {
             属性中心.setAttr({isWork:true});
         }
         return true;
+    }
+}
+
+function 随机化出生(属性中心){
+    switch(tools.随机数(1,3)){
+        case 1:
+            // 贫困
+            属性中心.setAttr({家境:1});
+            break;
+        case 2:
+            // 小康
+            属性中心.setAttr({家境:4});
+            break;
+        case 3:
+            // 小康
+            属性中心.setAttr({家境:8});
+            break;
     }
 }
 let 事件库 = new 基本人生事件库();
