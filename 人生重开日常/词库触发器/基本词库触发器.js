@@ -50,7 +50,11 @@ let Trigger = {
     学生(attr){
         if(attr.isStudent == undefined) return;
         if(attr.isStudent){
-            词库管理器.载入词库('学校');
+            if(attr.属性中心.家境<= 3){
+                词库管理器.载入词库('农村学校');
+            }else{
+                词库管理器.载入词库('贵族学校');
+            }
         }else{
             词库管理器.卸载词库('学校');
         }
