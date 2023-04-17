@@ -58,6 +58,8 @@ let 词库管理器 = {
     随机获得词条(){
         let index = tools.随机数(0,this.词库列表.length-1);
         let 词列 = this.词库列表[index];
+        // console.log(词列);
+        if(词列==undefined){ return '<span style="font-size:12px;opacity:0.2">今年无事发生</span>'};
         let 词条 = 词列.list.splice(tools.随机数(0,词列.length-1),1)[0];
         if(词列.list.length == 0){
             this.卸载词库(this.词库列表[index].name);
@@ -70,7 +72,6 @@ let 词库管理器 = {
         this.挂载词库(library);
     },
     挂载词库(list){
-        console.log('词库载入:'+list.name);
         this.词库列表.push(list);
     },
     卸载词库(name){

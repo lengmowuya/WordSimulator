@@ -22,6 +22,13 @@ let Trigger = {
             词库管理器.卸载词库('少年');
         }
     },
+    中年(attr){
+        if(!attr.年龄段) return;
+        if(attr.年龄段=='中年'){
+        }else{
+            // 词库管理器.卸载词库('少年');
+        }
+    },
     青年(attr){
         if(!attr.年龄段) return;
         if(attr.年龄段=='青年'){

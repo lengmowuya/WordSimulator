@@ -23,7 +23,7 @@ let 属性中心 ={
         this._health = curValue;
         界面更新器.更新();
     },
-    life:65,
+    寿命:65,
     isDie:false,
     isBorn:false,
     family:{

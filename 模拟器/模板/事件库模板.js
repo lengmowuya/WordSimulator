@@ -5,9 +5,14 @@ class 事件库模板{
         this.name = '事件库目标'
     }
     运行列表(属性中心){
-        this.执行列表.forEach((name)=>{
+        let pop = [];
+        this.执行列表.forEach(name=>{
             let once = this[name](属性中心);
-            if(once) this.删除事件(name);
+            if(once) pop.push(name);
+        })
+        // 不要在遍历订阅的时候修改订阅列表,否则会导致遍历异常.
+        pop.forEach(name=>{
+            this.删除事件(name);
         })
     }
     删除事件(name){

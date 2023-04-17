@@ -12,7 +12,6 @@ function init(){
             tools = data.default;
             return import('./词库触发器/基本词库触发器.js')
         }).then(data=>{
-            // console.log(data.default);
             词库触发器 = data.default;
             start();
         }).catch(err=>{
@@ -20,14 +19,10 @@ function init(){
         })
 }
 function start(){
-    // console.log(基本人生事件库);
-    console.log(tools);
     事件管理器.挂载事件库(基本人生事件库);
     触发管理器.挂载触发器(词库触发器);
     页面管理器.初始化();
     事件管理器.初始化(属性中心);
-    // 事件管理器.词库触发器 = 词库触发器;
-    // 基本人生事件库.prototype.tools = tools;
 }
 
 export default {
