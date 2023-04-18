@@ -37,6 +37,40 @@ ul,ol{
     border-radius: 8px;
     margin:10px;
     margin-top: 0;
+    .word{
+        list-style: none;
+        background:#fff;
+        border-radius: 4px;
+        margin:10px;
+        padding:6px;
+    }
+}
+.typeList{
+    display:flex;
+    flex-wrap: wrap;
+    margin:0px 10px;
+    margin-top:-4px;
+    li{
+        color:#fff;
+        list-style: none;
+        border-radius: 3px;
+        margin-right:6px;
+        padding:4px;
+        font-size:13px;
+        margin-bottom:6px;
+        max-width: 80px;
+        text-align: center;
+        flex-grow: 1;
+        &.good{
+            background:green;
+        }
+        &.bad{
+            background:red;
+        }
+        &.neutral{
+            background-color: chocolate;
+        }
+    }
 }
 .attrList{
     display:flex;
@@ -61,11 +95,4 @@ ul,ol{
 }
 #推进{
     padding:10px 16px; 
-}
-.word{
-    list-style: none;
-    background:#fff;
-    border-radius: 4px;
-    margin:10px;
-    padding:6px;
 }

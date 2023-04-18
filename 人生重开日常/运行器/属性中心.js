@@ -32,14 +32,13 @@ let 属性中心 ={
         mother:true,
         parter:false,
     },
+    type:[],
     money:0,
     tools,
     setAttr(attr){
         for(let key in attr){
             this[key] = attr[key];
         }
-        // console.log(词库管理器);
-        // console.log(触发管理器);
         attr.属性中心 = this;
         触发管理器.检测触发(attr);
     }
@@ -52,6 +51,9 @@ let 界面更新器 = {
     },
     更新(){
         this.体质属性li.innerText = '体质:' + 属性中心.health;
+    },
+    状态块更新(){
+        // this.
     }
 }
 界面更新器.初始化();

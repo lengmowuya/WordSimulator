@@ -53,18 +53,61 @@ let 页面管理器 ={
 
     }
 }
+let 状态管理器 = {
+    状态列表:[],
+    状态UI:undefined,
+    添加状态(text,type){
+        let has = false;
+        // 如果已有状态,加一层
+        this.状态列表.forEach((item,index)=>{
+            if(item.text === text){
+                item.count = item.count ? ++item.count : 1;
+                has = true;
+            }
+        });
+        if(!has) this.状态列表.push({text,type});
+        this.刷新状态UI();
+    },
+    删除状态(name){
+        this.状态列表.forEach((item,index)=>{
+            if(item.text === name){
+                this.状态列表.splice(index,1);
+            }
+        });
+    },
+    刷新状态UI(){
+        this.状态UI.innerHTML = '';
+        this.状态列表.forEach((item)=>{
+            let li = document.createElement('li');
+            li.className = item.type;
+            if(item.count){
+                li.innerText = item.text + '*' + item.count;
+            }else{
+                li.innerText = item.text;
+            }
+            this.状态UI.appendChild(li);
+        });
+    },
+    初始化(状态UI){
+        this.状态UI =状态UI;
+        this.刷新状态UI();
+    }
+}
+状态管理器.初始化(document.querySelector('.typeList'));
 let 词库管理器 = {
     词库列表:[],
     随机获得词条(){
         let index = tools.随机数(0,this.词库列表.length-1);
         let 词列 = this.词库列表[index];
         // console.log(词列);
-        if(词列==undefined){ return '<span style="font-size:12px;opacity:0.2">今年无事发生</span>'};
+        // if(词列==undefined){ return '<span style="font-size:12px;opacity:0.2">今年无事发生</span>'};
+        if(词列==undefined){ return '今年无事发生'};
         let 词条 = 词列.list.splice(tools.随机数(0,词列.list.length-1),1)[0];
         if(词列.list.length == 0){
             this.卸载词库(this.词库列表[index].name);
         }
-        return 词条.text + `<span style="font-size:12px;opacity:0.5"><${词列.name}></span>`;
+        // return 词条.text + `<span style="font-size:12px;opacity:0.5"><${词列.name}></span>`;
+        return 词条.text;
     },
     // 读取文件的同时挂载词库.
     async 载入词库(url){

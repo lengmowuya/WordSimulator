@@ -38,6 +38,40 @@ ol {
   margin: 10px;
   margin-top: 0;
 }
+.worldList .word {
+  list-style: none;
+  background: #fff;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 6px;
+}
+.typeList {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 10px;
+  margin-top: -4px;
+}
+.typeList li {
+  color: #fff;
+  list-style: none;
+  border-radius: 3px;
+  margin-right: 6px;
+  padding: 4px;
+  font-size: 13px;
+  margin-bottom: 6px;
+  max-width: 80px;
+  text-align: center;
+  flex-grow: 1;
+}
+.typeList li.good {
+  background: green;
+}
+.typeList li.bad {
+  background: red;
+}
+.typeList li.neutral {
+  background-color: chocolate;
+}
 .attrList {
   display: flex;
   padding: 5px;
@@ -59,11 +93,4 @@ ol {
 }
 #推进 {
   padding: 10px 16px;
-}
-.word {
-  list-style: none;
-  background: #fff;
-  border-radius: 4px;
-  margin: 10px;
-  padding: 6px;
 }

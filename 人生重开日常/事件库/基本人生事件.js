@@ -30,6 +30,7 @@ class 基本人生事件库 extends 事件库模板 {
     衰老(属性中心){
         // 当age>life-5时,health每年-0.5.
         if(属性中心.age < (属性中心.寿命 - 5)) return;
+        状态管理器.添加状态('衰老','bad');
         属性中心.setAttr({health:属性中心.health-0.2});
     }
     死亡(属性中心){
@@ -62,6 +63,7 @@ class 基本人生事件库 extends 事件库模板 {
     }
     生娃(属性中心){
         if(属性中心.isWork && 属性中心.isMarried && !属性中心.hasChild){
+            状态管理器.添加状态('为人父母','good');
             页面管理器.添加词条(`<span style="color:red">你的老婆给你生了一个大胖儿子,恭喜你有娃了!</span>`);
             属性中心.setAttr({hasChild:true});
         }
@@ -125,8 +127,7 @@ function 随机化出生(属性中心){
             break;
     }
     // 寿命设置
-    属性中心.setAttr({寿命:tools.随机数(60,120)});
-
+    属性中心.setAttr({寿命:tools.随机数(50,77)});
 }
 let 事件库 = new 基本人生事件库();
 export default 事件库;
