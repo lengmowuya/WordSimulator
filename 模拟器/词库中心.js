@@ -9,7 +9,7 @@ function 随机获得词条(){
     if(词列==undefined){ return '今年无事发生'};
     let 词条 = 词列.list.splice(tools.随机数(0,词列.list.length-1),1)[0];
     if(词列.list.length == 0){
-        词库中心.卸载词库(词库中心.词库列表[index].name);
+        卸载词库(词库中心.词库列表[index].name);
     }
     // return 词条.text + `<span style="font-size:12px;opacity:0.5"><${词列.name}></span>`;
     return 词条.text;
@@ -18,7 +18,7 @@ function 随机获得词条(){
 async function 载入词库(url){
     词库中心 = 词库中心;
     let library = await tools.载入文件(url);
-    词库中心.挂载词库(library);
+    挂载词库(library);
 }
 function 挂载词库(list){
     词库中心 = 词库中心;

@@ -1,85 +1,79 @@
 let Trigger = {
-    triggerList : ['年龄增长','体质','幼童','少年','青年','社畜','婚姻','学生','带娃'],
-    年龄增长(attr){
-        if(!attr.age) return;
-        页面管理器.添加词条(`<span style="color:gray;font-size:12px">年龄:${attr.age}</span>`,true);
-    },
-    体质(attr){
-        if(!attr.health) return;
-        界面.更新();
-    },
-    幼童(attr){
-        if(!attr.年龄段) return;
-        if(attr.年龄段=='幼童'){
-            if(attr.属性中心.家境<=3){
-                词库管理器.载入词库('贫穷幼童');
-            }else{
-                词库管理器.载入词库('幼童');
-            }
-        }else{
-            词库管理器.卸载词库('幼童');
-            词库管理器.卸载词库('贫穷幼童');
-        }
-    },
-    少年(attr){
-        if(!attr.年龄段) return;
-        if(attr.年龄段=='少年'){
-            词库管理器.载入词库('少年');
-        }else{
-            词库管理器.卸载词库('少年');
-        }
-    },
-    中年(attr){
-        if(!attr.年龄段) return;
-        if(attr.年龄段=='中年'){
-        }else{
-            // 词库管理器.卸载词库('少年');
-        }
-    },
-    青年(attr){
-        if(!attr.年龄段) return;
-        if(attr.年龄段=='青年'){
-            词库管理器.载入词库('青年');
-        }else{
-            词库管理器.卸载词库('青年');
-        }
-    },
-    社畜(attr){
-        if(attr.isWork == undefined || attr.isStudent) return;
-        if(attr.isWork){
-            词库管理器.载入词库('社畜');
-        }else{
-            词库管理器.卸载词库('社畜');
-        }
-    },
-    婚姻(attr){
-        if(attr.isMarried == undefined) return;
-        if(attr.isMarried){
-            词库管理器.载入词库('结婚');
-            console.log('结婚了');
-        }else{
-            词库管理器.卸载词库('结婚');
-        }
-    },
-    学生(attr){
-        if(attr.isStudent == undefined) return;
-        if(attr.isStudent){
-            if(attr.属性中心.家境<= 3){
-                词库管理器.载入词库('农村学校');
-            }else{
-                词库管理器.载入词库('贵族学校');
-            }
-        }else{
-            词库管理器.卸载词库('学校');
-        }
-    },
-    带娃(attr){
-        if(attr.hasChild == undefined) return;
-        if(attr.hasChild){
-            词库管理器.载入词库('带娃');
-        }else{
-            词库管理器.卸载词库('带娃');
-        }
-    },
+    初始化(){
+        属性触发器挂载();
+    }
 }
+function 属性触发器挂载(){
+    触发中心.触发时('age',(val)=>{
+        添加词条(`<span style="color:gray;font-size:12px">年龄:${val}</span>`,true);
+    })
+    触发中心.触发时('health',()=>{
+        界面.更新();
+    })
+    触发中心.触发时('年龄段',(val)=>{
+        if(val=='幼童'){
+            if(属性.家境<=3){
+                载入词库('贫穷幼童');
+            }else{
+                载入词库('幼童');
+            }
+        }else{
+            卸载词库('幼童');
+            卸载词库('贫穷幼童');
+        }
+    })
+    触发中心.触发时('年龄段',(val)=>{
+        if(val=='少年'){
+            载入词库('少年');
+        }else{
+            卸载词库('少年');
+        }
+    })
+    触发中心.触发时('年龄段',(val)=>{
+        if(val=='中年'){
+        }else{
+        }
+    })
+    触发中心.触发时('年龄段',(val)=>{
+        if(val=='青年'){
+            载入词库('青年');
+        }else{
+            卸载词库('青年');
+        }
+    })
+    触发中心.触发时('isWork',(val)=>{
+        if(属性.isWork == undefined || 属性.isStudent) return;
+        if(val){
+            载入词库('社畜');
+        }else{
+            卸载词库('社畜');
+        }
+    })
+    触发中心.触发时('isMarried',(val)=>{
+        if(val){
+            载入词库('结婚');
+        }else{
+            卸载词库('结婚');
+        }
+    })
+    触发中心.触发时('isStudent',(val)=>{
+        if(val){
+            if(属性.家境<= 3){
+                载入词库('农村学校');
+            }else{
+                载入词库('贵族学校');
+            }
+        }else{
+            卸载词库('学校');
+        }
+    })
+    触发中心.触发时('hasChild',(val)=>{
+        if(val){
+            载入词库('带娃');
+        }else{
+            卸载词库('带娃');
+        }
+    })
+}
+
 export default Trigger;

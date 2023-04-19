@@ -21,7 +21,7 @@ class 基本人生事件库 extends 事件库模板 {
 
         }else{
             添加词条(`<span style="color:red">你胎死腹中</span>`);
-            事件管理器.结束游戏();
+            结束游戏();
         }
         return true;
     }
@@ -33,14 +33,14 @@ class 基本人生事件库 extends 事件库模板 {
     衰老(){
         // 当age>life-5时,health每年-0.5.
         if(属性.age < (属性.寿命 - 5)) return;
-        状态管理器.添加状态('衰老','bad');
+        添加状态('衰老','bad');
         设置属性({health:属性.health-0.2});
     }
     死亡(){
         // 死亡事件:当health<0时,死亡.
         if(属性.health > 0) return;
         添加词条(`<span style="color:red">你死了</span>`);
-        事件管理器.结束游戏();
+        结束游戏();
         return true;
     }
     学校(){
@@ -66,7 +66,7 @@ class 基本人生事件库 extends 事件库模板 {
     }
     生娃(){
         if(属性.isWork && 属性.isMarried && !属性.hasChild){
-            状态管理器.添加状态('为人父母','good');
+            添加状态('为人父母','good');
             添加词条(`<span style="color:red">你的老婆给你生了一个大胖儿子,恭喜你有娃了!</span>`);
             设置属性({hasChild:true});
         }
@@ -84,7 +84,7 @@ class 基本人生事件库 extends 事件库模板 {
                 break;
             case 30:
                 设置属性({年龄段:'中年'});
-                词库管理器.载入词库('世界随机词条');
+                载入词库('世界随机词条');
                 break;
             case 55:
                 设置属性({年龄段:'老年'});
@@ -93,7 +93,7 @@ class 基本人生事件库 extends 事件库模板 {
     }
     娱乐(){
         if(属性.age < 12) return;
-        词库管理器.载入词库('娱乐');
+        载入词库('娱乐');
         return true;
     }
     成人(){
@@ -101,7 +101,7 @@ class 基本人生事件库 extends 事件库模板 {
         import('./../事件库/成人事件.js')
             .then(data=>{
                 事件库 = data.default;
-                事件管理器.挂载事件库(事件库);
+                挂载事件库(事件库);
             })
         return true;
     }
@@ -113,7 +113,7 @@ class 基本人生事件库 extends 事件库模板 {
         // return true;
     }
     添加随机选择词条(){
-        添加词条(词库管理器.随机获得词条());
+        添加词条(随机获得词条());
     }
 }
 

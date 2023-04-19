@@ -1,13 +1,6 @@
 let 状态中心 = {
     状态列表:[],
     状态UI:undefined,
-    删除状态(name){
-        this.状态列表.forEach((item,index)=>{
-            if(item.text === name){
-                this.状态列表.splice(index,1);
-            }
-        });
-    },
     刷新状态UI(){
         this.状态UI.innerHTML = '';
         this.状态列表.forEach((item)=>{
@@ -37,4 +30,11 @@ function 添加状态(text,type){
     });
     if(!has) 状态中心.状态列表.push({text,type});
     状态中心.刷新状态UI();
+}
+function 删除状态(name){
+    状态中心.状态列表.forEach((item,index)=>{
+        if(item.text === name){
+            状态中心.状态列表.splice(index,1);
+        }
+    });
 }

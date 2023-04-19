@@ -14,6 +14,7 @@ let 属性 ={
 }
 function 设置属性(attr){
     for(let key in attr){
+        // 触发中心.触发
         if(typeof attr[key] === 'number'){
             // 粗糙解决小数点问题
             属性[key] = Number(attr[key].toFixed(2));
