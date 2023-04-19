@@ -12,7 +12,6 @@ let 触发中心 = {
         触发中心.list.forEach((item)=>{
             item.apply(触发中心,[attr]);
         })
-
         for(let name in attr){
             // 触发中心.触发
             this.触发(name,attr[name]);

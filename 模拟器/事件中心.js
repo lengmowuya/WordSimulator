@@ -1,5 +1,6 @@
 let 事件中心 = {
     广播组:[],
+    Hash:{},
     推进按钮:undefined,
     初始化(){
         this.推进按钮 = document.querySelector('#推进');
@@ -8,14 +9,27 @@ let 事件中心 = {
         }
     },
     推进(){
+        if(this.Hash['按钮点击']){
+            this.Hash['按钮点击'].forEach(item=>{
+                item();
+            })
+        }
         if(this.广播组.length <= 0) return;
         this.广播组.forEach((item)=>{
             item.运行列表();
         })
+
     }
 }
 function 挂载事件库(事件列表){
     事件中心.广播组.push(事件列表);
+}
+function 订阅事件(eventName,fn){
+    if(事件中心.Hash[eventName]){
+        事件中心.Hash[eventName].push(fn);
+    }else{
+        事件中心.Hash[eventName] = [fn] ;
+    } 
 }
 function 卸载事件库(name){
     for(let i =0;i<事件中心.广播组.length;i++){

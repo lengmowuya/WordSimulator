@@ -11,69 +11,30 @@ function 属性触发器挂载(){
         界面.更新();
     })
     触发中心.触发时('年龄段',(val)=>{
-        if(val=='幼童'){
-            if(属性.家境<=3){
-                载入词库('贫穷幼童');
-            }else{
-                载入词库('幼童');
-            }
-        }else{
-            卸载词库('幼童');
-            卸载词库('贫穷幼童');
-        }
-    })
-    触发中心.触发时('年龄段',(val)=>{
-        if(val=='少年'){
-            载入词库('少年');
-        }else{
-            卸载词库('少年');
-        }
-    })
-    触发中心.触发时('年龄段',(val)=>{
         if(val=='中年'){
         }else{
         }
     })
-    触发中心.触发时('年龄段',(val)=>{
-        if(val=='青年'){
-            载入词库('青年');
-        }else{
-            卸载词库('青年');
-        }
-    })
-    触发中心.触发时('isWork',(val)=>{
-        if(属性.isWork == undefined || 属性.isStudent) return;
-        if(val){
-            载入词库('社畜');
-        }else{
-            卸载词库('社畜');
-        }
-    })
-    触发中心.触发时('isMarried',(val)=>{
-        if(val){
-            载入词库('结婚');
-        }else{
-            卸载词库('结婚');
-        }
-    })
-    触发中心.触发时('isStudent',(val)=>{
-        if(val){
-            if(属性.家境<= 3){
-                载入词库('农村学校');
-            }else{
-                载入词库('贵族学校');
-            }
-        }else{
-            卸载词库('学校');
-        }
-    })
-    触发中心.触发时('hasChild',(val)=>{
-        if(val){
-            载入词库('带娃');
-        }else{
-            卸载词库('带娃');
-        }
-    })
+    词库响应('少年','age',val=>val>=6 && val<18);
+    词库响应('青年','age',val=>val>=18 && val<30);
+    词库响应('结婚','isMarried',val=>!val);
+    词库响应('带娃','hasChild',val=>val);
+    词库响应('世界随机词条','age',val=>val>=30);
+    词库响应('农村学校','isStudent',val=>{
+        if(val && 属性.家境 <= 3) return true;
+    });
+    词库响应('贵族学校','isStudent',val=>{
+        if(val && 属性.家境 > 3) return true;
+    });
+    词库响应('社畜','isWork',val=>{
+        if(val && !属性.isStudent) return true;
+    });
+    词库响应('贫穷幼童',['age','家境'],val=>{
+        if(属性.age>=0 && 属性.age<6 && 属性.家境 <= 3) return true;
+    });
+    词库响应('幼童',['age','家境'],val=>{
+        if(属性.age>=0 && 属性.age<6 && 属性.家境 > 3) return true;
+    });
 }
 
 export default Trigger;
