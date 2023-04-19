@@ -1,5 +1,13 @@
 let Trigger = {
-    triggerList : ['幼童','少年','青年','社畜','婚姻','学生','带娃'],
+    triggerList : ['年龄增长','体质','幼童','少年','青年','社畜','婚姻','学生','带娃'],
+    年龄增长(attr){
+        if(!attr.age) return;
+        页面管理器.添加词条(`<span style="color:gray;font-size:12px">年龄:${attr.age}</span>`,true);
+    },
+    体质(attr){
+        if(!attr.health) return;
+        界面.更新();
+    },
     幼童(attr){
         if(!attr.年龄段) return;
         if(attr.年龄段=='幼童'){
@@ -9,7 +17,6 @@ let Trigger = {
                 词库管理器.载入词库('幼童');
             }
         }else{
-            // console.log(this);
             词库管理器.卸载词库('幼童');
             词库管理器.卸载词库('贫穷幼童');
         }

@@ -18,16 +18,8 @@
                     现金:0
                 </li>
             </ul>
-            <ul class="typeList">
-                <!-- <li class="good">理财顾问</li>
-                <li class="bad">赌博成瘾</li>
-                <li class="neutral">老实本分</li>
-                <li class="neutral">老实本分</li>
-                <li class="neutral">老实本分</li>
-                <li class="neutral">老实本分</li> -->
-            </ul>
-            <ul class="worldList">
-            </ul>
+            <ul class="typeList"></ul>
+            <ul class="worldList"></ul>
         </div>
         <button id="推进">推进!</button>
 
@@ -36,13 +28,18 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
     <script src="./模拟器/tools.js"></script>
     <script src="./模拟器/模板/事件库模板.js"></script>
-    <script src="./模拟器/中心管理器.js"></script>
-    <script>
-
-    </script>
+    <script src="./模拟器/属性中心.js"></script>
+    <script src="./模拟器/事件中心.js"></script>
+    <script src="./模拟器/界面中心.js"></script>
+    <script src="./模拟器/词库中心.js"></script>
+    <script src="./模拟器/状态中心.js"></script>
+    <script src="./模拟器/触发中心.js"></script>
     <script type="module">
-        import 人生重开日常DLC from './人生重开日常/dlc.js'
-        人生重开日常DLC.init();
+        事件中心.初始化();
+        界面.初始化();
+        状态中心.初始化(document.querySelector('.typeList'));
+        import 人生重开日常DLC from './人生重开日常/入口文件.js'
+        人生重开日常DLC.初始化();
     </script>
 </body>
 </html>
