@@ -17,9 +17,11 @@ function 属性触发器挂载(){
     })
     词库响应('少年','age',val=>val>=6 && val<18);
     词库响应('青年','age',val=>val>=18 && val<30);
-    词库响应('结婚','isMarried',val=>!val);
+    词库响应('娱乐','age',val=>val>12);
+    词库响应('结婚','isMarried',val=>val);
     词库响应('带娃','hasChild',val=>val);
     词库响应('世界随机词条','age',val=>val>=30);
+    词库响应('中年','age',val=>val>=32);
     词库响应('农村学校','isStudent',val=>{
         if(val && 属性.家境 <= 3) return true;
     });

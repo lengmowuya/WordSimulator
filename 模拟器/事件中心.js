@@ -1,6 +1,7 @@
 let 事件中心 = {
     广播组:[],
     Hash:{},
+    canRun:true,
     推进按钮:undefined,
     初始化(){
         this.推进按钮 = document.querySelector('#推进');
@@ -9,12 +10,12 @@ let 事件中心 = {
         }
     },
     推进(){
+        if(!this.canRun) return;
         if(this.Hash['按钮点击']){
             this.Hash['按钮点击'].forEach(item=>{
                 item();
             })
         }
-        if(this.广播组.length <= 0) return;
         this.广播组.forEach((item)=>{
             item.运行列表();
         })
@@ -40,4 +41,5 @@ function 卸载事件库(name){
 }
 function 结束游戏(){
     事件中心.广播组 = [];
+    事件中心.canRun = false;
 }
