@@ -27,7 +27,6 @@ async function 载入词库(name){
     挂载词库(library);
 }
 function 挂载词库(library){
-    console.log(library);
     console.log('词库挂载:'+library.name);
     词库中心 = 词库中心;
     词库中心.词库列表.push(library);

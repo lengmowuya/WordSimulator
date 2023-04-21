@@ -2,6 +2,7 @@ let 事件中心 = {
     广播组:[],
     Hash:{},
     canRun:true,
+    isPause:false,
     推进按钮:undefined,
     初始化(){
         this.推进按钮 = document.querySelector('#推进');
@@ -10,7 +11,7 @@ let 事件中心 = {
         }
     },
     推进(){
-        if(!this.canRun) return;
+        if(!this.canRun || this.isPause) return;
         if(this.Hash['按钮点击']){
             this.Hash['按钮点击'].forEach(item=>{
                 item();
