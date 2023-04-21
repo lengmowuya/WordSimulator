@@ -29,21 +29,41 @@ ol {
   overflow: hidden;
   flex-direction: column;
 }
-.worldList {
-  background: #333366;
-  border: 2px solid #333366;
+.wordListShell {
   flex-grow: 1;
-  overflow: auto;
-  border-radius: 8px;
+  display: flex;
   margin: 10px;
   margin-top: 0;
+  border-radius: 8px;
+  background: #33338533;
+  box-shadow: inset 0px 0px 9px #33338533;
+  overflow: auto;
+  padding-right: 4px;
+  flex-direction: column;
 }
-.worldList .word {
+.wordList {
+  border-radius: 8px;
+  overflow: auto;
+}
+.wordList::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+.wordList::-webkit-scrollbar-thumb {
+  background-color: #33338533;
+  border-radius: 14px;
+  width: 6px;
+}
+.wordList::-webkit-scrollbar-thumb:hover {
+  background-color: #33338599;
+}
+.wordList .word {
   list-style: none;
   background: #fff;
   border-radius: 4px;
   margin: 10px;
   padding: 6px;
+  margin-right: 6px;
 }
 .typeList {
   display: flex;
@@ -78,10 +98,10 @@ ol {
 }
 .attrList .attrLi {
   color: #fff;
-  background: #333366;
+  background: #335599;
   border-radius: 4px;
   margin: 6px;
-  padding: 6px;
+  padding: 3px 6px;
 }
 .container {
   width: 100vw;
@@ -90,6 +110,54 @@ ol {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.choice {
+  border-radius: 8px;
+  background: #666699;
+  margin: 10px;
+  padding: 10px;
+  margin-top: 0;
+  box-shadow: inset 0px 0px 9px #33338533;
+  color: #fff;
+}
+.choice h3,
+.choice h6 {
+  text-align: center;
+  user-select: none;
+}
+.choice h3 {
+  color: #fff;
+  animation: 0.6s breathe infinite alternate;
+}
+.choice h6 {
+  opacity: 0.15;
+  color: #fff;
+  margin: 6px 0;
+  font-weight: none;
+}
+.choice ol li {
+  margin: 6px 0px;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+.choice ol li:hover {
+  color: red;
+}
+.choice ol li:hover::after {
+  content: '?';
+}
+@keyframes breathe {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
 #推进 {
   padding: 10px 16px;

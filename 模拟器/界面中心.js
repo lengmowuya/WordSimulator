@@ -2,7 +2,7 @@ let 界面 = {
     体质属性li:null,
     初始化(){
         this.体质属性li = document.querySelector('.attr_health');
-        this.词条列表UI = document.querySelector('.worldList');
+        this.词条列表UI = document.querySelector('.wordList');
     },
     更新(){
         this.体质属性li.innerText = '体质:' + 属性.health;
