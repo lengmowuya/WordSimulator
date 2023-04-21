@@ -135,17 +135,23 @@ ol {
   margin: 6px 0;
   font-weight: none;
 }
-.choice ol li {
+.choice ol button {
   margin: 6px 0px;
   text-decoration: underline;
   cursor: pointer;
   transition: all 0.2s;
   user-select: none;
+  display: block;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
 }
-.choice ol li:hover {
+.choice ol button:hover {
   color: red;
 }
-.choice ol li:hover::after {
+.choice ol button:hover::after {
   content: '?';
 }
 @keyframes breathe {

@@ -21,6 +21,14 @@ let 事件中心 = {
             item.运行列表();
         })
 
+    },
+
+}
+function 广播事件(eventName){
+    if(事件中心.Hash[eventName]){
+        事件中心.Hash[eventName].filter(fn=>{
+            return !fn();
+        })
     }
 }
 function 挂载事件库(事件列表){
@@ -43,4 +51,5 @@ function 卸载事件库(name){
 function 结束游戏(){
     事件中心.广播组 = [];
     事件中心.canRun = false;
+    广播事件('游戏结束');
 }
